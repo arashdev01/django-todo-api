@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     'accounts',
     'todos',
     'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -126,3 +128,13 @@ REST_FRAMEWORK = {
     )
     # اگر در آینده فیلتر یا Pagination اضافه کنیم، اینجا وارد می‌شود.
 }
+
+
+
+# ج) تنظیم دامنه‌های مجاز (این خطوط را به انتهای settings.py اضافه کنید)
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_CREDENTIALS = True
