@@ -12,3 +12,4 @@ class TaskSerializer(serializers.ModelSerializer):
         model = Task
         # فیلد owner را در لیست fields قرار می‌دهیم تا نمایش داده شود
         fields = ('id', 'owner', 'title', 'description', 'completed')
+        read_only_fields = ('owner',)
